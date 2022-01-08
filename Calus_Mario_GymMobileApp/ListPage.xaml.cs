@@ -23,13 +23,13 @@ namespace Calus_Mario_GymMobileApp
         {
             var elist = (GymList)BindingContext;
             elist.Date = DateTime.UtcNow;
-            await App.Database.SaveShopListAsync(elist);
+            await App.Database.SaveGymListAsync(elist);
             await Navigation.PopAsync();
         }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {
             var elist = (GymList)BindingContext;
-            await App.Database.DeleteShopListAsync(elist);
+            await App.Database.DeleteGymListAsync(elist);
             await Navigation.PopAsync();
         }
 
@@ -48,7 +48,7 @@ namespace Calus_Mario_GymMobileApp
             base.OnAppearing();
             var gyml = (GymList)BindingContext;
 
-            listView.ItemsSource = await App.Database.GetListProductsAsync(gyml.ID);
+            listView.ItemsSource = await App.Database.GetListItemsAsync(gyml.ID);
         }
 
 

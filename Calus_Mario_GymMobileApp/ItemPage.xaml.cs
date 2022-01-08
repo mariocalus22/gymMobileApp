@@ -23,19 +23,19 @@ namespace Calus_Mario_GymMobileApp
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             var item = (Item)BindingContext;
-            await App.Database.SaveProductAsync(item);
-            listView.ItemsSource = await App.Database.GetProductsAsync();
+            await App.Database.SaveItemAsync(item);
+            listView.ItemsSource = await App.Database.GetItemsAsync();
         }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {
             var item = (Item)BindingContext;
-            await App.Database.DeleteProductAsync(item);
-            listView.ItemsSource = await App.Database.GetProductsAsync();
+            await App.Database.DeleteItemAsync(item);
+            listView.ItemsSource = await App.Database.GetItemsAsync();
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            listView.ItemsSource = await App.Database.GetProductsAsync();
+            listView.ItemsSource = await App.Database.GetItemsAsync();
         }
 
         async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -50,7 +50,7 @@ namespace Calus_Mario_GymMobileApp
                     GymListID = gl.ID,
                     ItemID = i.ID
                 };
-                await App.Database.SaveListProductAsync(li);
+                await App.Database.SaveListItemAsync(li);
                 i.ListItems = new List<ListItem> { li };
 
                 await Navigation.PopAsync();

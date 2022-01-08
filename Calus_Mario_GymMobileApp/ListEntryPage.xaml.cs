@@ -20,7 +20,7 @@ namespace Calus_Mario_GymMobileApp
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            listView.ItemsSource = await App.Database.GetShopListsAsync();
+            listView.ItemsSource = await App.Database.GetGymListsAsync();
         }
         async void OnShopListAddedClicked(object sender, EventArgs e)
         {

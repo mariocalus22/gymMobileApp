@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Calus_Mario_GymMobileApp.ListPage">
+             x:Class="Calus_Mario_GymMobileApp.ListPage" BackgroundColor="#AEABA0">
     <ContentPage.Content xmlns:local="clr-namespace:Calus_Mario_GymMobileApp">
-        <StackLayout Margin="20">
+        <StackLayout Margin="20" BackgroundColor="#AEABA0">
             <Editor Placeholder="Enter the name of your gym essentials list" Text="{Binding Description}" HeightRequest="100" >
 
                 <Editor.Behaviors>
@@ -15,7 +15,7 @@
 
 
 
-            <Grid>
+            <Grid BackgroundColor="#AEABA0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />

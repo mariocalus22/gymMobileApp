@@ -18,7 +18,7 @@ namespace Calus_Mario_GymMobileApp.Data
             _database.CreateTableAsync<ListItem>().Wait();
         }
 
-        public Task<int> SaveProductAsync(Item item)
+        public Task<int> SaveItemAsync(Item item)
         {
             if (item.ID != 0)
             {
@@ -29,25 +29,25 @@ namespace Calus_Mario_GymMobileApp.Data
                 return _database.InsertAsync(item);
             }
         }
-        public Task<int> DeleteProductAsync(Item item)
+        public Task<int> DeleteItemAsync(Item item)
         {
             return _database.DeleteAsync(item);
         }
-        public Task<List<Item>> GetProductsAsync()
+        public Task<List<Item>> GetItemsAsync()
         {
             return _database.Table<Item>().ToListAsync();
         }
-        public Task<List<GymList>> GetShopListsAsync()
+        public Task<List<GymList>> GetGymListsAsync()
         {
             return _database.Table<GymList>().ToListAsync();
         }
-        public Task<GymList> GetShopListAsync(int id)
+        public Task<GymList> GetGymListAsync(int id)
         {
             return _database.Table<GymList>()
             .Where(i => i.ID == id)
            .FirstOrDefaultAsync();
         }
-        public Task<int> SaveShopListAsync(GymList elist)
+        public Task<int> SaveGymListAsync(GymList elist)
         {
             if (elist.ID != 0)
             {
@@ -58,12 +58,12 @@ namespace Calus_Mario_GymMobileApp.Data
                 return _database.InsertAsync(elist);
             }
         }
-        public Task<int> DeleteShopListAsync(GymList elist)
+        public Task<int> DeleteGymListAsync(GymList elist)
         {
             return _database.DeleteAsync(elist);
         }
 
-        public Task<int> SaveListProductAsync(ListItem listi)
+        public Task<int> SaveListItemAsync(ListItem listi)
         {
             if (listi.ID != 0)
             {
@@ -74,7 +74,7 @@ namespace Calus_Mario_GymMobileApp.Data
                 return _database.InsertAsync(listi);
             }
         }
-        public Task<List<Item>> GetListProductsAsync(int gymlistid)
+        public Task<List<Item>> GetListItemsAsync(int gymlistid)
         {
             return _database.QueryAsync<Item>(
             "select I.ID, I.Description from Item I"
